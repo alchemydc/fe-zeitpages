@@ -28,7 +28,8 @@ function App() {
 
 
   useEffect(_ => {
-    axios.get("https://be.zecpages.com/users")
+    //axios.get("https://be.zecpages.com/users")  // public endpoint to grab users
+    axios.get("http://localhost:5000/users")  // public endpoint to grab users
       .then(res => {
         setZaddrs(res.data.sort( (a, b) => b.id-a.id))
       })
@@ -39,7 +40,7 @@ function App() {
   // initialize services
   useEffect( _ => {
 
-    ReactGA.initialize("UA-156199574-2");
+    ReactGA.initialize("UA-156199574-2"); 
     ReactGA.pageview("/");
     ReactGA.event({category: "App", action: "Loaded app"});
   }, [])

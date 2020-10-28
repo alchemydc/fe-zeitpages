@@ -9,7 +9,7 @@ export default function BoardPost(props) {
         datetime: 0
     })
     useEffect( _ => {
-        axios.get(`https://be.zecpages.com/board/post/${props.match.params.id}`)
+        axios.get(`http://localhost:5000/board/post/${props.match.params.id}`)
             .then(res => setPost(res.data))
             .catch(err => console.log(err))
     },[])

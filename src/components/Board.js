@@ -34,7 +34,7 @@ export default function Board() {
       }
 
     const getNewPosts = _ => {
-        axios.get(`https://be.zecpages.com/board/${page}`)
+        axios.get(`http://localhost:5000/board/${page}`)
         .then(res =>{ 
                 let newPosts= res.data.sort( (a, b) => b.id-a.id)
                 if (posts !== newPosts) {
@@ -42,7 +42,7 @@ export default function Board() {
                                     }
             })
         .catch(err => console.log(err));
-        axios.get(`https://be.zecpages.com/board/count`)
+        axios.get(`http://localhost:5000/board/count`)
         .then(res =>{ 
                 setPostCount(Number(res.data));
             })

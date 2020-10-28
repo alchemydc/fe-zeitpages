@@ -14,7 +14,7 @@ export default function Login({history}) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post("https://be.zecpages.com/auth/login", formInfo)
+        axios.post("http://localhost:5000/auth/login", formInfo)
             .then(res => {
                 ReactGA.event({category: "User", action: `logged in ${formInfo.username}`});
                 localStorage.setItem("jwt", res.data.token);

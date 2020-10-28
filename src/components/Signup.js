@@ -21,7 +21,8 @@ export default function Login({history}) {
         } 
         else {
             const {username, password} = formInfo;
-            axios.post("https://be.zecpages.com/auth/register", {username, password})
+            //axios.post("https://be.zecpages.com/auth/register", {username, password})
+            axios.post("http://localhost:5000/auth/register", {username, password}) // todo: make this a const
                 .then(res => {
                         
                         ReactGA.event({category: "User", action: `created account ${formInfo.username} `});

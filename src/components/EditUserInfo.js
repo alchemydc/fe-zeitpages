@@ -22,7 +22,7 @@ export default function EditUserInfo ({history}) {
     }
 
     useEffect( _ => {
-        axiosAuth().get("https://be.zecpages.com/users/me")
+        axiosAuth().get("http://localhost:5000/users/me")
         .then(res => setUser(res.data))
         .catch(err => console.error(err))
     },[])
@@ -41,7 +41,7 @@ export default function EditUserInfo ({history}) {
                 setError("Your proof of identity should link to a post on another website that indicates your ownership of this account.")
             }
             else {
-            axiosAuth().put("https://be.zecpages.com/users", user)
+            axiosAuth().put("http://localhost:5000/users", user)
                 .then(res => {
                     ReactGA.event({category: "User", action: "Edited User"});
                     setUser(res.data);
@@ -62,7 +62,7 @@ export default function EditUserInfo ({history}) {
             buttons: [
                 {
                     label: "Yes",
-                    onClick: _ => axiosAuth().delete(`https://be.zecpages.com/users/`)
+                    onClick: _ => axiosAuth().delete(`http://localhost:5000/users/`)
                     .then( _ => {
                         setZaddrs( ...zaddrs.filter(zaddr => zaddr.id !== user.id ))
                         setUser({website: ""});
